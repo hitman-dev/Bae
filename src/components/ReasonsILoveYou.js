@@ -78,6 +78,7 @@ const ReasonsILoveYou = () => {
     handleScroll(); // Check on mount
 
     return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
