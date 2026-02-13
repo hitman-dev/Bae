@@ -1,0 +1,234 @@
+.love-letters-section {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #ffeef8, #fff);
+  min-height: 100vh;
+}
+
+.letters-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  padding: 20px;
+}
+
+.letter-envelope {
+  position: relative;
+  height: 400px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.envelope-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #fff 0%, #fff5f8 100%);
+  border-radius: 15px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(196, 69, 105, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 107, 157, 0.2);
+}
+
+.envelope-front:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(196, 69, 105, 0.3);
+  border-color: #ff6b9d;
+}
+
+.envelope-seal {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.envelope-label h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #c44569;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.letter-date {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: #ff6b9d;
+}
+
+.envelope-hint {
+  margin-top: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.letter-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.letter-envelope.open .envelope-front {
+  opacity: 0;
+  transform: scale(0.9) translateY(-20px);
+  pointer-events: none;
+}
+
+.letter-envelope.open .letter-content {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.letter-paper {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #fffdf7 0%, #fff9f0 100%);
+  border-radius: 15px;
+  padding: 40px 35px;
+  box-shadow: 0 15px 40px rgba(196, 69, 105, 0.3);
+  overflow-y: auto;
+  border: 1px solid rgba(196, 69, 105, 0.2);
+  animation: unfold 0.5s ease;
+}
+
+@keyframes unfold {
+  from {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+.letter-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 107, 157, 0.2);
+}
+
+.letter-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #c44569;
+  margin-bottom: 8px;
+}
+
+.letter-date-full {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: #ff6b9d;
+}
+
+.letter-body {
+  font-family: 'Georgia', serif;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #333;
+  white-space: pre-line;
+}
+
+.letter-body p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.letter-body p:first-child {
+  margin-top: 0;
+}
+
+/* Scrollbar for letter content */
+.letter-paper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.letter-paper::-webkit-scrollbar-track {
+  background: rgba(255, 107, 157, 0.1);
+  border-radius: 10px;
+}
+
+.letter-paper::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 157, 0.5);
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .love-letters-section {
+    padding: 60px 15px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    padding: 0 10px;
+  }
+
+  .letters-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 10px;
+  }
+
+  .letter-envelope {
+    height: 420px;
+  }
+
+  .envelope-front {
+    padding: 30px 20px;
+  }
+
+  .envelope-seal {
+    font-size: 3rem;
+  }
+
+  .envelope-label h3 {
+    font-size: 1.4rem;
+  }
+
+  .letter-date {
+    font-size: 1.1rem;
+  }
+
+  .envelope-hint {
+    font-size: 0.85rem;
+  }
+
+  .letter-paper {
+    padding: 25px 20px;
+  }
+
+  .letter-header h3 {
+    font-size: 1.4rem;
+  }
+
+  .letter-body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+}

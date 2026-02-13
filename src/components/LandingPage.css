@@ -1,0 +1,160 @@
+.landing-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-page::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.landing-content {
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heart-container {
+  margin-bottom: 30px;
+}
+
+.beating-heart {
+  font-size: 100px;
+  animation: heartBeat 1.5s ease infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.6));
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  10%, 30% { transform: scale(0.9); }
+  20%, 40% { transform: scale(1.1); }
+  50% { transform: scale(1.15); }
+  60% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.landing-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.subtitle {
+  display: block;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin-top: 10px;
+  color: #ffd6e8;
+}
+
+.landing-message {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 40px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.enter-button {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  color: white;
+  border: none;
+  padding: 20px 50px;
+  font-size: 1.3rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+  transition: all 0.3s ease;
+  animation: buttonFadeIn 1s ease;
+}
+
+@keyframes buttonFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.enter-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+}
+
+.enter-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.heart-icon {
+  font-size: 1.5rem;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+  }
+
+  .landing-message {
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+
+  .enter-button {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+  }
+
+  .beating-heart {
+    font-size: 70px;
+  }
+}
